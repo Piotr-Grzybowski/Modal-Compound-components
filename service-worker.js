@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/modal-compound-components/precache-manifest.b53f9b11717734d46962a0fa82dd10b3.js"
+  "/modal-compound-components/precache-manifest.b2e6a1e182c98a81f65fb90f503cfc68.js"
 );
 
 self.addEventListener('message', (event) => {
