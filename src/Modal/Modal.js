@@ -21,20 +21,27 @@ class Modal extends React.Component {
       this.setState({
         isOpen: isItOn
       });
+    console.log();
   };
 
   render() {
+    const { isOpen } = this.state;
     const children = React.Children.map(this.props.children, (child) =>
       React.cloneElement(child, { toggle: this.toggle })
     );
+    const showHideClassName = isOpen
+      ? 'modal display-block'
+      : 'modal display-none';
     return (
       <div
-        className="modal"
+        className={showHideClassName}
         onClick={(event) => {
           this.toggle(false);
         }}
       >
-        {children}
+        <section className="modal-main" onClick={(e) => e.stopPropagation()}>
+          {children}
+        </section>
       </div>
     );
   }
