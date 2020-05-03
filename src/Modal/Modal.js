@@ -1,8 +1,8 @@
 import React from 'react';
 import './Modal.css';
-import Header from './Header';
-import Content from './Content';
-import Footer from './Footer';
+import Header from './Subcomponents/Header';
+import Content from './Subcomponents/Content';
+import Footer from './Subcomponents/Footer';
 
 class Modal extends React.Component {
   static Header = Header;
@@ -24,12 +24,16 @@ class Modal extends React.Component {
   };
 
   render() {
-    const { isOpen } = this.state;
     const children = React.Children.map(this.props.children, (child) =>
-      React.cloneElement(child, { isOpen, toogle: this.toggle })
+      React.cloneElement(child, { toggle: this.toggle })
     );
     return (
-      <div className="modal" onClick={() => this.toggle(false)}>
+      <div
+        className="modal"
+        onClick={(event) => {
+          this.toggle(false);
+        }}
+      >
         {children}
       </div>
     );
